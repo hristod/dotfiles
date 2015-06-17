@@ -27,6 +27,9 @@
      osx
      shell
      syntax-checking
+     html
+     javascript
+     ycmd
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
@@ -73,6 +76,7 @@ before layers configuration."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(material
+                         material-light
                          spacegray
                          solarized-light
                          leuven
@@ -153,7 +157,16 @@ before layers configuration."
    ;; Not used for now.
    dotspacemacs-default-package-repository nil
    )
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; User initialization goes here
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  ;; Basic indentation
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 2)
+  ;; Javascript indentation
+  (setq-default js-indent-level 2)
+  (setq-default js2-basic-offset 2)
   )
 
 (defun dotspacemacs/config ()
@@ -161,6 +174,9 @@ before layers configuration."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
   (global-relative-line-numbers-mode)
+  ;; Keys remapping
+  (define-key evil-normal-state-map "H" "^")
+  (define-key evil-normal-state-map "L" "$")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
