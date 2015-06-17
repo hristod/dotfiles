@@ -24,6 +24,7 @@
           git-gutter-use-fringe t)
      markdown
      org
+     osx
      shell
      syntax-checking
      )
