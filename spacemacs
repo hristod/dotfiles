@@ -167,6 +167,8 @@ before layers configuration."
   ;; Javascript indentation
   (setq-default js-indent-level 2)
   (setq-default js2-basic-offset 2)
+  ;; Web mode indentation
+  (setq-default web-mode-attr-indent-offset 2)
   )
 
 (defun dotspacemacs/config ()
