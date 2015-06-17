@@ -1,5 +1,5 @@
 "
-" If on a new system, run this first: 
+" If on a new system, run this first:
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 "    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "
@@ -15,10 +15,8 @@ Plug 'ajh17/Spacegray.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'ddollar/nerdcommenter'
 Plug 'pangloss/vim-javascript'
-Plug 'kien/ctrlp.vim'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic/'
-Plug 'garbas/vim-snipmate'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'vim-multiple-cursors'
@@ -29,6 +27,11 @@ Plug 'digitaltoad/vim-jade'
 Plug 'wavded/vim-stylus'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'tomtom/tlib_vim'
+Plug 'moll/vim-node'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
+Plug 'SirVer/ultisnips'
+Plug 'ladislas/vim-snippets'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
@@ -38,9 +41,17 @@ call plug#end()
 colorscheme Spacegray
 set guifont=Monaco:h13
 set nowrap
+set relativenumber
 set number
 set laststatus=2
 set ttimeoutlen=50
+
+" Annoying capital command letters fix  
+
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -61,6 +72,9 @@ set whichwrap+=<,>,h,l
 
 " Ignore case when searching
 set ignorecase
+
+" Go directly to first result
+set incsearch
 
 " When searching try to be smart about cases 
 set smartcase
@@ -84,7 +98,7 @@ set si "Smart indent
 
 " Emmet expand on tab in insert mode
 
-imap   <Tab> <plug>(emmet-expand-abbr)
+" imap   <Tab> <plug>(emmet-expand-abbr)
   
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -218,10 +232,6 @@ else
 
 endif
 
-""
-"" Command-Line Mappings
-""
-
 " After whitespace, insert the current directory into a command-line path
 cnoremap <expr> <C-P> getcmdline()[getcmdpos()-2] ==# ' ' ? expand('%:p:h') : "\<C-P>"
 
@@ -233,5 +243,8 @@ else
   map <leader>/ <plug>NERDCommenterToggle<CR>
 endif
 
-" Nerdtree toggle with <leader>n
-map <leader>n :NERDTreeToggle<CR> :NERDTreeMirror<CR>
+" Nerdtree toggle with <leader>f
+map <leader>f :NERDTreeToggle<CR> :NERDTreeMirror<CR>
+
+" Switch between relative and normaln numbers
+nnoremap <silent><leader>n :set rnu! rnu? <cr>
