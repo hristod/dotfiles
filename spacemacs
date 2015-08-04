@@ -31,6 +31,7 @@
      javascript
      ycmd
      go
+     php-mode
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
@@ -162,14 +163,6 @@ before layers configuration."
   ;; User initialization goes here
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-  ;; Basic indentation
-  (setq-default indent-tabs-mode nil)
-  (setq-default tab-width 2)
-  ;; Javascript indentation
-  (setq-default js-indent-level 2)
-  (setq-default js2-basic-offset 2)
-  ;; Web mode indentation
-  (setq-default web-mode-attr-indent-offset 2)
   )
 
 (defun dotspacemacs/config ()
@@ -180,6 +173,18 @@ layers configuration."
   ;; Keys remapping
   (define-key evil-normal-state-map "H" "^")
   (define-key evil-normal-state-map "L" "$")
+  ;; Basic indentation
+  (setq indent-tabs-mode nil)
+  (setq tab-width 2)
+  ;; Javascript indentation
+  (setq js-indent-level 2)
+  (setq js2-basic-offset 2)
+  ;; Web mode indentation
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-attr-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
