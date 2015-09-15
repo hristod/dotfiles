@@ -12,10 +12,11 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'altercation/vim-colors-solarized'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ddollar/nerdcommenter'
 Plug 'pangloss/vim-javascript'
-" Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
+Plug 'dyng/ctrlsf.vim'
 Plug 'scrooloose/syntastic/'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -30,18 +31,19 @@ Plug 'tpope/vim-fugitive'
 Plug 'tomtom/tlib_vim'
 Plug 'moll/vim-node'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 Plug 'ladislas/vim-snippets'
 Plug 'kien/rainbow_parentheses.vim'
 " Plug 'skammer/vim-css-color'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
 """"""""""""""""""
 " General Settings
 """"""""""""""""""
-" set clipboard=unnamed " Uses OS clipboard if enabled
+set clipboard=unnamed " Uses OS clipboard if enabled
 set nocompatible " not compatible with vi
 
 set autoread " Set to auto read when a file is changed from the outside
@@ -60,7 +62,7 @@ set cmdheight=1 " command bar height
 """""""""""""""""""""""
 " Visual and  Color Scheme Settings
 """""""""""""""""""""""
-set guifont=Monaco:h13
+set guifont=Monaco:h12
 set nowrap
 set relativenumber
 set number
@@ -81,12 +83,12 @@ let g:solarized_contrast = "high"
 colorscheme solarized
 
 
-" Annoying capital command letters fix  
+" Annoying capital command letters fix
 
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
+" :command WQ wq
+" :command Wq wq
+" :command W w
+" :command Q q
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -108,7 +110,7 @@ set ignorecase
 " Go directly to first result
 set incsearch
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Use spaces instead of tabs
@@ -132,7 +134,7 @@ set si "Smart indent
 " Custom mapping
 """"""""""""""""""""""
 " Emmet expand on tab in insert mode
-imap   <leader>e <plug>(emmet-expand-abbr)
+imap <C-Y> (emmet-expand-abbr)
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -158,14 +160,8 @@ nmap <leader>et :tabe <C-R>=expand('%:h').'/'<cr>
 " Swap two words
 nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
 
-" set text wrapping toggles
-nmap <silent> <leader>tw :set invwrap<CR>:set wrap?<CR>
-
-" find merge conflict markers
-nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
-
 " Toggle hlsearch with <leader>hs
-nmap <leader>hs :set hlsearch! hlsearch?<CR>
+" nmap <leader>hs :set hlsearch! hlsearch?<CR>
 
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
@@ -196,9 +192,33 @@ nnoremap <leader>/ "fyiw :/<c-r>f<cr>
 
 " CtrlP Settings
 nmap <silent> <leader>b :CtrlPBuffer<cr>
-let g:ctrlp_map='<leader>t'
 let g:ctrlp_dotfiles=1
 let g:ctrlp_working_path_mode = 'ra'
 
-" Ultisnips for YCM
-let g:ycm_use_ultisnips_completer = 1
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
+
+" Tmux Navigator stuff
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
+" nnoremap <silent> {C-\} :TmuxNavigatePrevious<cr>
+
+
+" Opening a new tab
+nnoremap <leader>t :tabnew<cr>
+
+" Change tabs using <leader>+h, <leader>+l
+nnoremap <leader>h :tabp<cr>
+nnoremap <leader>l :tabn<cr>
+
+match ErrorMsg '\s\+$'
+nnoremap <leader>rtw :%s/\s\+$//e<CR>
