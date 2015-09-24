@@ -11,15 +11,17 @@
 
 call plug#begin('~/.vim/plugged')
 
+" Utilities
 Plug 'altercation/vim-colors-solarized'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Raimondi/delimitMate'
 Plug 'ddollar/nerdcommenter'
-Plug 'pangloss/vim-javascript'
-Plug 'ervandew/supertab'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Plug 'ervandew/supertab'
 Plug 'dyng/ctrlsf.vim'
 Plug 'scrooloose/syntastic/'
-Plug 'Lokaltog/vim-easymotion'
-Plug 'MarcWeber/vim-addon-mw-utils'
+" Plug 'Lokaltog/vim-easymotion'
+" Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'vim-multiple-cursors'
 Plug 'bling/vim-airline'
 Plug 'mattn/emmet-vim'
@@ -30,13 +32,17 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tomtom/tlib_vim'
 Plug 'moll/vim-node'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
 " Plug 'SirVer/ultisnips'
-Plug 'ladislas/vim-snippets'
+" Plug 'ladislas/vim-snippets'
 Plug 'kien/rainbow_parentheses.vim'
 " Plug 'skammer/vim-css-color'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'christoomey/vim-tmux-navigator'
+
+" Javascript Related Plugins
+Plug 'pangloss/vim-javascript'
+Plug 'jelera/vim-javascript-syntax'
 
 call plug#end()
 
@@ -81,14 +87,6 @@ set background=dark
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 colorscheme solarized
-
-
-" Annoying capital command letters fix
-
-" :command WQ wq
-" :command Wq wq
-" :command W w
-" :command Q q
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -222,3 +220,35 @@ nnoremap <leader>l :tabn<cr>
 
 match ErrorMsg '\s\+$'
 nnoremap <leader>rtw :%s/\s\+$//e<CR>
+
+
+" Rainbow Parantheses
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+
+" Always ON
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" Check file syntax on open:
+let g:syntastic_check_on_open=1
