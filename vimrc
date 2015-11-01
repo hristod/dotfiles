@@ -35,8 +35,7 @@ Plug 'moll/vim-node'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
 " Plug 'SirVer/ultisnips'
-" Plug 'ladislas/vim-snippets'
-Plug 'kien/rainbow_parentheses.vim'
+" Plug 'junegunn/rainbow_parentheses.vim'
 " Plug 'skammer/vim-css-color'
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -223,32 +222,33 @@ nnoremap <leader>rtw :%s/\s\+$//e<CR>
 
 
 " Rainbow Parantheses
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
+let g:rainbow#max_level = 8
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+" let g:rainbow#blacklist = [255, 234]
 
-" Always ON
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+let g:rainbow#colors = {
+\   'dark': [
+\     ['yellow',  'orange1'     ],
+\     ['green',   'yellow1'     ],
+\     ['cyan',    'greenyellow' ],
+\     ['magenta', 'green1'      ],
+\     ['red',     'springgreen1'],
+\     ['yellow',  'cyan1'       ],
+\     ['green',   'slateblue1'  ],
+\     ['cyan',    'magenta1'    ],
+\     ['magenta', 'purple1'     ]
+\   ],
+\   'light': [
+\     ['darkyellow',  'orangered3'    ],
+\     ['darkgreen',   'orange2'       ],
+\     ['blue',        'yellow3'       ],
+\     ['darkmagenta', 'olivedrab4'    ],
+\     ['red',         'green4'        ],
+\     ['darkyellow',  'paleturquoise3'],
+\     ['darkgreen',   'deepskyblue4'  ],
+\     ['blue',        'darkslateblue' ],
+\     ['darkmagenta', 'darkviolet'    ]
+\   ]
+\ }
 
 " Check file syntax on open:
-let g:syntastic_check_on_open=1

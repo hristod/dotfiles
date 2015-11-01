@@ -1,4 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/Users/hristod/Projects/StoreGecko/storegecko-v2/src'
-let g:netrw_dirhist_2='/Users/hristod/Projects/Aloha/AgencySeek/agencyseek-laravel/src'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/hristod/Projects/StoreGecko/storegecko-v2/src/frontend-src'
+let g:netrw_dirhist_2='/Users/hristod/Projects/StoreGecko/storegecko-v2/src/frontend-src/js'
+let g:netrw_dirhist_3='/Users/hristod/Projects/StoreGecko/storegecko-v2/src/frontend-src'
+let g:netrw_dirhist_4='/Users/hristod/Projects/StoreGecko/storegecko-v2/src/frontend-src/jade'
+let g:netrw_dirhist_5='/Users/hristod/Projects/StoreGecko/storegecko-v2/src/frontend-src'
