@@ -28,16 +28,24 @@ Plug 'mattn/emmet-vim'
 Plug 'tmhedberg/matchit'
 Plug 'digitaltoad/vim-jade'
 Plug 'wavded/vim-stylus'
+Plug 'groenewege/vim-less'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tomtom/tlib_vim'
 Plug 'moll/vim-node'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
-" Plug 'SirVer/ultisnips'
-" Plug 'junegunn/rainbow_parentheses.vim'
-" Plug 'skammer/vim-css-color'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'elzr/vim-json'
+
+" Typescript plugins
+Plug 'leafgarland/typescript-vim'
+Plug 'clausreinke/typescript-tools.vim'
+
+" Snippets
+Plug 'Shougo/neocomplete'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 
 " Javascript Related Plugins
 Plug 'pangloss/vim-javascript'
@@ -221,34 +229,35 @@ match ErrorMsg '\s\+$'
 nnoremap <leader>rtw :%s/\s\+$//e<CR>
 
 
-" Rainbow Parantheses
-let g:rainbow#max_level = 8
-let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-" let g:rainbow#blacklist = [255, 234]
+" Neosnippets
+"
+"" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-let g:rainbow#colors = {
-\   'dark': [
-\     ['yellow',  'orange1'     ],
-\     ['green',   'yellow1'     ],
-\     ['cyan',    'greenyellow' ],
-\     ['magenta', 'green1'      ],
-\     ['red',     'springgreen1'],
-\     ['yellow',  'cyan1'       ],
-\     ['green',   'slateblue1'  ],
-\     ['cyan',    'magenta1'    ],
-\     ['magenta', 'purple1'     ]
-\   ],
-\   'light': [
-\     ['darkyellow',  'orangered3'    ],
-\     ['darkgreen',   'orange2'       ],
-\     ['blue',        'yellow3'       ],
-\     ['darkmagenta', 'olivedrab4'    ],
-\     ['red',         'green4'        ],
-\     ['darkyellow',  'paleturquoise3'],
-\     ['darkgreen',   'deepskyblue4'  ],
-\     ['blue',        'darkslateblue' ],
-\     ['darkmagenta', 'darkviolet'    ]
-\   ]
-\ }
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<TAB>" : "\<Plug>(neosnippet_expand_or_jump)"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-" Check file syntax on open:
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+
+" Youcomplete Me settings for Typescript-tools
+if !exists("g:ycm_semantic_triggers")
+   let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
+set completeopt-=preview
+
+" Backups
+set backup                     " enable creation of backup files
+set backupdir=~/.vim/backups   " Where to store the backups
+set directory=~/.vim/tmp       " Temporary files will go

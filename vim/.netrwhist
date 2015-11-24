@@ -1,7 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/hristod/Projects/StoreGecko/storegecko-v2/src/frontend-src'
-let g:netrw_dirhist_2='/Users/hristod/Projects/StoreGecko/storegecko-v2/src/frontend-src/js'
-let g:netrw_dirhist_3='/Users/hristod/Projects/StoreGecko/storegecko-v2/src/frontend-src'
-let g:netrw_dirhist_4='/Users/hristod/Projects/StoreGecko/storegecko-v2/src/frontend-src/jade'
-let g:netrw_dirhist_5='/Users/hristod/Projects/StoreGecko/storegecko-v2/src/frontend-src'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/hristod/Projects/StoreGecko/storegecko-v2/src/frontend-src/js/custom/grid'
+let g:netrw_dirhist_2='/Users/hristod/Projects/StoreGecko/storegecko-v2/src/frontend-src'
+let g:netrw_dirhist_3='/Users/hristod/Projects/StoreGecko/storegecko-v2/src/frontend-src/js'
+let g:netrw_dirhist_4='/Users/hristod/Projects/StoreGecko/storegecko-v2/src/frontend-src/js/custom'
+let g:netrw_dirhist_5='/Users/hristod/Projects/StoreGecko/storegecko-v2/src/frontend-src/js/custom/product-inspector'
+let g:netrw_dirhist_6='/Users/hristod/playground/angular2-quickstart/src'
+let g:netrw_dirhist_7='/Users/hristod/playground/angular2-quickstart/src/app'
