@@ -20,7 +20,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Plug 'ervandew/supertab'
 Plug 'dyng/ctrlsf.vim'
 Plug 'scrooloose/syntastic/'
-" Plug 'Lokaltog/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 " Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'vim-multiple-cursors'
 Plug 'bling/vim-airline'
@@ -38,18 +38,26 @@ Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'elzr/vim-json'
 
+" Javascript Related Plugins & Settings
+Plug 'pangloss/vim-javascript'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'othree/javascript-libraries-syntax.vim'
+
+" Angular JS plugins
+Plug 'matthewsimo/angular-vim-snippets'
+
 " Typescript plugins
 Plug 'leafgarland/typescript-vim'
 Plug 'clausreinke/typescript-tools.vim'
+
 
 " Snippets
 Plug 'Shougo/neocomplete'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 
-" Javascript Related Plugins
-Plug 'pangloss/vim-javascript'
-Plug 'jelera/vim-javascript-syntax'
+" React realted plugins & settings
+Plug 'mxw/vim-jsx'
 
 call plug#end()
 
@@ -89,7 +97,6 @@ set t_Co=256
 syntax enable
 
 " Solarised Theme Settings
-
 set background=dark
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
@@ -124,7 +131,7 @@ set expandtab
 " Be smart when using tabs ;)
 set smarttab
 
-" 1 tab == 2 spaces
+" 1 tab = 2 spaces
 set shiftwidth=2
 set tabstop=2
 
@@ -147,6 +154,8 @@ map <silent> <leader><cr> :noh<cr>
 ""
 "" General Mappings (Normal, Visual, Operator-pending)
 ""
+
+" <leader> as space
 nnoremap <space> <nop>
 map <space> <leader>
 
@@ -162,8 +171,6 @@ nmap <leader>es :sp <C-R>=expand('%:h').'/'<cr>
 nmap <leader>ev :vsp <C-R>=expand('%:h').'/'<cr>
 nmap <leader>et :tabe <C-R>=expand('%:h').'/'<cr>
 
-" Swap two words
-nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
 
 " Toggle hlsearch with <leader>hs
 " nmap <leader>hs :set hlsearch! hlsearch?<CR>
@@ -261,3 +268,16 @@ set completeopt-=preview
 set backup                     " enable creation of backup files
 set backupdir=~/.vim/backups   " Where to store the backups
 set directory=~/.vim/tmp       " Temporary files will go
+
+" Easy Motion
+map <leader>w <Plug>(easymotion-w)
+
+"""""""""""""""""""""""
+" Javascript Settings "
+"""""""""""""""""""""""
+let g:syntastic_javascript_checkers = ['eslint']
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+
+" Javascript Libs settins
+let g:used_javascript_libs = 'angularjs,jquery,react'
