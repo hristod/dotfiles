@@ -37,11 +37,15 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'elzr/vim-json'
-
+Plug 'jiangmiao/auto-pairs'
 " Javascript Related Plugins & Settings
-Plug 'pangloss/vim-javascript'
-Plug 'jelera/vim-javascript-syntax'
+" Plug 'pangloss/vim-javascript'
+Plug 'gavocanov/vim-js-indent' " replaces vim-javascript
+" Plug 'jelera/vim-javascript-syntax'
+Plug 'othree/yajs.vim' " replaces vim-javascript-syntax
 Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'moll/vim-node'
+Plug 'ludovicchabant/vim-gutentags'
 
 " Angular JS plugins
 Plug 'matthewsimo/angular-vim-snippets'
@@ -52,7 +56,7 @@ Plug 'clausreinke/typescript-tools.vim'
 
 
 " Snippets
-Plug 'Shougo/neocomplete'
+" Plug 'Shougo/neocomplete'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 
@@ -171,10 +175,6 @@ nmap <leader>es :sp <C-R>=expand('%:h').'/'<cr>
 nmap <leader>ev :vsp <C-R>=expand('%:h').'/'<cr>
 nmap <leader>et :tabe <C-R>=expand('%:h').'/'<cr>
 
-
-" Toggle hlsearch with <leader>hs
-" nmap <leader>hs :set hlsearch! hlsearch?<CR>
-
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
 
@@ -243,13 +243,6 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-" SuperTab like snippets behavior.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<TAB>" : "\<Plug>(neosnippet_expand_or_jump)"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " For conceal markers.
 if has('conceal')
@@ -257,17 +250,13 @@ if has('conceal')
 endif
 
 
-" Youcomplete Me settings for Typescript-tools
-if !exists("g:ycm_semantic_triggers")
-   let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers['typescript'] = ['.']
-set completeopt-=preview
-
 " Backups
 set backup                     " enable creation of backup files
 set backupdir=~/.vim/backups   " Where to store the backups
 set directory=~/.vim/tmp       " Temporary files will go
+
+" YouCompletEMe
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 " Easy Motion
 map <leader>w <Plug>(easymotion-w)
@@ -281,3 +270,5 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " Javascript Libs settins
 let g:used_javascript_libs = 'angularjs,jquery,react'
+
+let g:AutoPairsFlyMode = 0
