@@ -17,7 +17,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'ddollar/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-" Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
 Plug 'dyng/ctrlsf.vim'
 Plug 'scrooloose/syntastic/'
 Plug 'easymotion/vim-easymotion'
@@ -39,6 +39,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'elzr/vim-json'
 Plug 'jiangmiao/auto-pairs'
 " Javascript Related Plugins & Settings
+
 " Plug 'pangloss/vim-javascript'
 Plug 'gavocanov/vim-js-indent' " replaces vim-javascript
 " Plug 'jelera/vim-javascript-syntax'
@@ -47,21 +48,13 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'moll/vim-node'
 Plug 'ludovicchabant/vim-gutentags'
 
-" Angular JS plugins
-Plug 'matthewsimo/angular-vim-snippets'
-
-" Typescript plugins
-Plug 'leafgarland/typescript-vim'
-Plug 'clausreinke/typescript-tools.vim'
-
-
-" Snippets
-" Plug 'Shougo/neocomplete'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-
 " React realted plugins & settings
 Plug 'mxw/vim-jsx'
+
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 
 call plug#end()
 
@@ -235,31 +228,50 @@ nnoremap <leader>l :tabn<cr>
 match ErrorMsg '\s\+$'
 nnoremap <leader>rtw :%s/\s\+$//e<CR>
 
+"""""""""""""""""""""""""""""""""
+" Autocomplete related settings "
+"""""""""""""""""""""""""""""""""
 
-" Neosnippets
-"
-"" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+" Ultisnips
 
+let g:UltiSnipsSnippetsDir='~/.vim/snippets'
+let g:UltiSnipsEditSplit='vertical'
+let g:UltiSnipsExpandTrigger           = '<tab>'
+let g:UltiSnipsJumpForwardTrigger      = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+nnoremap <leader>ue :UltiSnipsEdit<cr>
 
+" YouCompletEMe
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+let g:ycm_dont_warn_on_startup = 0
+
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+
+let g:ycm_filetype_blacklist = {}
+
+let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+
+" Supertab
+let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:SuperTabCrMapping                = 0
+
+" Easy Motion
+map <leader>w <Plug>(easymotion-w)
 
 " Backups
 set backup                     " enable creation of backup files
 set backupdir=~/.vim/backups   " Where to store the backups
 set directory=~/.vim/tmp       " Temporary files will go
 
-" YouCompletEMe
-let g:ycm_autoclose_preview_window_after_completion = 1
-
-" Easy Motion
-map <leader>w <Plug>(easymotion-w)
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 
 """""""""""""""""""""""
 " Javascript Settings "
