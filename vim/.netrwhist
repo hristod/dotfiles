@@ -1,8 +1,8 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/bitstream/Projects/hubtm-frontend'
-let g:netrw_dirhist_2='/Users/bitstream/Projects/hubtm-frontend/views'
-let g:netrw_dirhist_3='/Users/bitstream/Projects/hubtm-frontend/views/home'
+let g:netrw_dirhist_1='/Users/bitstream/Projects/Scraper/prototype'
+let g:netrw_dirhist_2='/Users/bitstream/Projects/hubtm-frontend'
+let g:netrw_dirhist_3='/Users/bitstream/Projects/hubtm-frontend/public'
 let g:netrw_dirhist_4='/Users/bitstream/Projects/hubtm-frontend'
 let g:netrw_dirhist_5='/Users/bitstream/Projects/hubtm-frontend/views'
-let g:netrw_dirhist_6='/usr/local/Cellar'
+let g:netrw_dirhist_6='/Users/bitstream/Projects/hubtm-frontend/views/search'

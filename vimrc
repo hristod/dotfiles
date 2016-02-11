@@ -21,6 +21,7 @@ Plug 'ervandew/supertab'
 Plug 'dyng/ctrlsf.vim'
 Plug 'scrooloose/syntastic/'
 Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-obsession'
 " Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'vim-multiple-cursors'
 Plug 'bling/vim-airline'
@@ -86,6 +87,7 @@ set relativenumber
 set number
 set laststatus=2
 set ttimeoutlen=50
+set lazyredraw
 set ttyfast " faster redrawing
 set mouse=a
 
