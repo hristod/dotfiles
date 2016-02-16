@@ -91,14 +91,13 @@ set lazyredraw
 set ttyfast " faster redrawing
 set mouse=a
 
-" colorscheme Spacegray
+" Solarised Theme Settings
 set t_Co=256
 syntax enable
 
-" Solarised Theme Settings
 set background=dark
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
+" let g:solarized_visibility = "high"
+" let g:solarized_contrast = "high"
 colorscheme solarized
 
 " Switch syntax highlighting on, when the terminal has colors
