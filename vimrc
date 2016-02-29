@@ -20,11 +20,12 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'ervandew/supertab'
 Plug 'dyng/ctrlsf.vim'
 Plug 'scrooloose/syntastic/'
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-obsession'
 " Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'vim-multiple-cursors'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'mattn/emmet-vim'
 Plug 'tmhedberg/matchit'
 Plug 'digitaltoad/vim-jade'
@@ -99,6 +100,8 @@ set background=dark
 " let g:solarized_visibility = "high"
 " let g:solarized_contrast = "high"
 colorscheme solarized
+
+let g:airline_powerline_fonts = 1
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
