@@ -1,4 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/Users/hristod/Projects/Scraper/scraper'
-let g:netrw_dirhist_2='/Users/hristod/Projects/Scraper/scraper/routes'
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/hristod/Projects/Scraper/prototype'
+let g:netrw_dirhist_2='/Users/hristod/playground/advenced-react-redux'
+let g:netrw_dirhist_3='/Users/hristod/playground/advenced-react-redux/test'
+let g:netrw_dirhist_4='/Users/hristod/playground/advenced-react-redux/test/components'
+let g:netrw_dirhist_5='/Users/hristod/playground/advenced-react-redux'
+let g:netrw_dirhist_6='/Users/hristod/Projects/Digistore24/Digistore24Homepage'

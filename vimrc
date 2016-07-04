@@ -9,10 +9,12 @@
 " Load plugins
 "
 
+
 call plug#begin('~/.vim/plugged')
 
 " Utilities
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'ddollar/nerdcommenter'
@@ -57,7 +59,6 @@ Plug 'mxw/vim-jsx'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-
 call plug#end()
 
 """"""""""""""""""
@@ -90,16 +91,16 @@ set laststatus=2
 set ttimeoutlen=50
 set lazyredraw
 set ttyfast " faster redrawing
-set mouse=a
-
-" Solarised Theme Settings
-set t_Co=256
+set mouse=r
+set ttymouse=xterm2
 syntax enable
+set t_Co=256
 
+" Theme Settings
+colorscheme base16-default-dark
+
+" let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
-" let g:solarized_visibility = "high"
-" let g:solarized_contrast = "high"
-colorscheme solarized
 
 let g:airline_powerline_fonts = 1
 
@@ -280,7 +281,7 @@ endif
 """""""""""""""""""""""
 " Javascript Settings "
 """""""""""""""""""""""
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['standard']
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 
