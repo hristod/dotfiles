@@ -22,6 +22,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'ervandew/supertab'
 Plug 'dyng/ctrlsf.vim'
 Plug 'scrooloose/syntastic/'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 " Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-obsession'
 " Plug 'MarcWeber/vim-addon-mw-utils'
@@ -42,8 +43,8 @@ Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'elzr/vim-json'
 Plug 'jiangmiao/auto-pairs'
-" Javascript Related Plugins & Settings
 
+" Javascript Related Plugins & Settings
 " Plug 'pangloss/vim-javascript'
 Plug 'gavocanov/vim-js-indent' " replaces vim-javascript
 " Plug 'jelera/vim-javascript-syntax'
@@ -51,6 +52,9 @@ Plug 'othree/yajs.vim' " replaces vim-javascript-syntax
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'moll/vim-node'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'othree/jspc.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'quramy/tsuquyomi'
 
 " React realted plugins & settings
 Plug 'mxw/vim-jsx'
@@ -58,6 +62,9 @@ Plug 'mxw/vim-jsx'
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
+" Processing
+Plug 'sophacles/vim-processing'
 
 call plug#end()
 
@@ -99,7 +106,7 @@ set t_Co=256
 " Theme Settings
 colorscheme base16-default-dark
 
-" let base16colorspace=256  " Access colors present in 256 colorspace
+let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
 
 let g:airline_powerline_fonts = 1
@@ -289,3 +296,8 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:used_javascript_libs = 'angularjs,jquery,react'
 
 let g:AutoPairsFlyMode = 0
+
+"""""""""""""""""
+" Openframeworks
+"""""""""""""""""
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf_openframeworks.py"
