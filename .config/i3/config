@@ -168,6 +168,7 @@ bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # Auto exec
 exec --no-startup-id i3-msg 'workspace 5; exec urxvt -e ranger'
+exec --no-startup-id nm-applet
 
 # Lock
 bindsym $mod+x exec i3lock

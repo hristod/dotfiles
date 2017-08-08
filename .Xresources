@@ -1,9 +1,12 @@
 URxvt.font: xft:monospace:size=10, xft:FontAwesome:size=9
+URxvt.boldFont: xft:monospace:size=10, xft:FontAwesome:size=9
 URxvt.scrollBar: false
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0200/f000
 
 ! special
 URxvt*.foreground:   #c5c8c6
-URxvt*.background:   #1d1f21
+!URxvt*.background:   #1d1f21
 URxvt*.cursorColor:  #c5c8c6
 
 ! black
