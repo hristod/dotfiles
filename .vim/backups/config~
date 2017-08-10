@@ -20,6 +20,12 @@ label=
 label=
 instance=swap
 
+[brightness]
+label=
+command=echo `cat /sys/class/backlight/acpi_video0/brightness`%
+signal=2
+interval=once
+
 [battery]
 label=
 
@@ -27,7 +33,7 @@ label=
 label=
 instance=Master
 interval=once
-signal=10
+signal=3
 interval=once
 
 [time]
