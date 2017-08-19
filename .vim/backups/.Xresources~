@@ -1,15 +1,7 @@
-Xft.dpi: 96
-Xft.antialias: true
-Xft.hinting: true
-Xft.rgba: rgb
-Xft.autohint: false
-Xft.hintstyle: hintfull
-Xft.lcdfilter: lcddefault
-
 URxvt.font: xft:monospace:size=10, xft:FontAwesome:size=9
 URxvt.boldFont: xft:monospace:size=10, xft:FontAwesome:size=9
 URxvt.scrollBar: false
-URxvt.depth: 24
+URxvt.depth: 32
 URxvt.background: rgba:0000/0000/0200/f000
 URxvt.letterSpace: -1
 
