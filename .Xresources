@@ -11,7 +11,7 @@ URxvt.boldFont: xft:monospace:size=10, xft:FontAwesome:size=9
 URxvt.scrollBar: false
 URxvt.depth: 24
 URxvt.background: rgba:0000/0000/0200/f000
-URxvt.letterSpace: -1
+URxvt.letterSpace: -2
 
 ! special
 URxvt*.foreground:   #c5c8c6
@@ -44,4 +44,12 @@ URxvt*.color14:      #8abeb7
 URxvt*.color7:       #707880
 URxvt*.color15:      #c5c8c6
 
-
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! Copyright: Rasmus Steinke
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: #273238, #273238, #1e2529
+rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844

@@ -1,4 +1,3 @@
 plugged
-vim/plugged
-vim/backups
-vim/tmp
+backups
+tmp
