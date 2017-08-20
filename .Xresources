@@ -13,6 +13,12 @@ URxvt.depth: 24
 URxvt.background: rgba:0000/0000/0200/f000
 URxvt.letterSpace: -2
 
+! Plugins
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 
+
+! URxvt Colors:
 ! special
 URxvt*.foreground:   #c5c8c6
 !URxvt*.background:   #1d1f21
