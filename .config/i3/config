@@ -187,12 +187,20 @@ font pango:monospace 8, Awesome 10
 
 
                            #border backgr. text
-        focused_workspace  #000000 #dddddd #282828
+        focused_workspace  #000000 #bbbbbb #282828
         active_workspace   #323232 #5f676a #ebdbb2
         inactive_workspace #323232 #323232 #888888
         urgent_workspace   #333333 #900000 #ffffff
     }
 }
+
+# Window colors
+
+# class                 border  backgr. text    indicator
+client.focused          #000000 #333333 #ebdbb2 #666666
+client.unfocused        #333333 #000000 #ebdbb2 #323232
+client.focused_inactive #333333 #000000 #ebdbb2 #323232
+client.urgent 		#333333 #383a3b #ee0000 #383a3b
 
 # Volume controls
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute; exec pkill -RTMIN+10 i3blocks
@@ -201,9 +209,11 @@ bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # Auto exec
 exec --no-startup-id nm-applet
+exec --no-startup-id xset b off # Disable beep
+
 
 # Lock
-bindsym $mod+x exec i3lock
+bindsym $mod+x exec ~/.config/i3/lock.sh
 
 # Application shortcuts
 #bindsym $mod+f exec urxvt -e ranger
@@ -237,3 +247,8 @@ for_window [class="(?i)recordmydesktop"] floating enable
 bindsym F9  exec rofi -show run -fg "#aaaaaa" -bg "#333333" -hlfg "#ffffff" -hlbg "#ffffff" -o 85
 bindsym $mod+d exec rofi -show drun
 bindsym F12 exec rofi -show window -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
+
+# Mode that ignores i3 keymappings
+mode "ignore i3" {
+    bindsym Shift+Escape mode "default"
+}
