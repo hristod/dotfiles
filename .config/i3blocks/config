@@ -6,9 +6,10 @@ interval=5
 [mediaplayer]
 label=
 
-[layout]
+[key_layout]
 label=
-command=xkb-switch
+command=~/.config/i3blocks/blocklets/key_layout --lon 'BG' --loff 'EN'
+interval=1
 
 [cpu_usage]
 label=
