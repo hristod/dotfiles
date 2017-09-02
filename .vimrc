@@ -1,70 +1,37 @@
-"
-" If on a new system, run this first:
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"
-" After this, run :PlugInstall to install all the plugins.
-
-"
-" Load plugins
-"
-
-
+"" Load plugins
 call plug#begin('~/.vim/plugged')
 
 " Utilities
 " Plug 'altercation/vim-colors-solarized'
-Plug 'chriskempson/base16-vim'
+"
+Plug 'tpope/vim-sensible'
+Plug 'sheerun/vim-polyglot'
+Plug 'flazz/vim-colorschemes'
+
+""" General Functionality
+Plug 'lifepillar/vim-mucomplete'
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'scrooloose/syntastic'
+Plug 'chiel92/vim-autoformat'
+
+
+
+
+
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Raimondi/delimitMate'
 Plug 'ddollar/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'ervandew/supertab'
 Plug 'dyng/ctrlsf.vim'
 Plug 'scrooloose/syntastic/'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-" Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-obsession'
-" Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'vim-multiple-cursors'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'mattn/emmet-vim'
 Plug 'tmhedberg/matchit'
-Plug 'digitaltoad/vim-jade'
-Plug 'wavded/vim-stylus'
-Plug 'groenewege/vim-less'
+" Plug 'digitaltoad/vim-jade'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'tomtom/tlib_vim'
-Plug 'moll/vim-node'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'elzr/vim-json'
-Plug 'jiangmiao/auto-pairs'
-
-" Javascript Related Plugins & Settings
-" Plug 'pangloss/vim-javascript'
-Plug 'gavocanov/vim-js-indent' " replaces vim-javascript
-" Plug 'jelera/vim-javascript-syntax'
-Plug 'othree/yajs.vim' " replaces vim-javascript-syntax
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'moll/vim-node'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'othree/jspc.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'quramy/tsuquyomi'
-
-" React realted plugins & settings
-Plug 'mxw/vim-jsx'
-
-" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
-" Processing
-Plug 'sophacles/vim-processing'
 
 call plug#end()
 
@@ -90,7 +57,6 @@ set cmdheight=1 " command bar height
 """""""""""""""""""""""
 " Visual and  Color Scheme Settings
 """""""""""""""""""""""
-set guifont=Monaco:h12
 set nowrap
 set relativenumber
 set number
@@ -101,15 +67,10 @@ set ttyfast " faster redrawing
 set mouse=r
 set ttymouse=xterm2
 syntax enable
-set t_Co=256
+" set t_Co=256
 
 " Theme Settings
-" colorscheme base16-default-dark
-
-let base16colorspace=256  " Access colors present in 256 colorspace
-set background=dark
-
-let g:airline_powerline_fonts = 1
+colorscheme molokai
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -119,50 +80,31 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 " Always set autoindenting on
-set autoindent
+set autoindent "autoindent
+set si "Smart indent
 
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
+set ignorecase " Ignore case when searching
+set incsearch " Go directly to first result
+set smartcase " When searching try to be smart about cases
 
-" Ignore case when searching
-set ignorecase
-
-" Go directly to first result
-set incsearch
-
-" When searching try to be smart about cases
-set smartcase
-
-" Use spaces instead of tabs
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
-
-" Be smart when using tabs ;)
-set smarttab
-
-" 1 tab = 2 spaces
-set shiftwidth=2
-set tabstop=2
 
 " Linebreak on 500 characters
 set lbr
 set tw=500
 
-set ai "Auto indent
-set si "Smart indent
 
 """"""""""""""""""""""
 " Custom mapping
 """"""""""""""""""""""
-" Emmet expand on tab in insert mode
-imap <C-Y> (emmet-expand-abbr)
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
-""
 "" General Mappings (Normal, Visual, Operator-pending)
-""
 
 " <leader> as space
 nnoremap <space> <nop>
@@ -301,3 +243,12 @@ let g:AutoPairsFlyMode = 0
 " Openframeworks
 """""""""""""""""
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf_openframeworks.py"
+
+"" mucomplete
+set completeopt+=menuone
+inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
+inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
+inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
+set completeopt+=noselect
+set completeopt+=noinsert
+let g:mucomplete#enable_auto_at_startup = 1
