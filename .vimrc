@@ -1,9 +1,7 @@
-"" Load plugins
+" Load plugins
 call plug#begin('~/.vim/plugged')
 
 " Utilities
-" Plug 'altercation/vim-colors-solarized'
-"
 Plug 'tpope/vim-sensible'
 Plug 'sheerun/vim-polyglot'
 Plug 'flazz/vim-colorschemes'
@@ -13,7 +11,6 @@ Plug 'lifepillar/vim-mucomplete'
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/syntastic'
 Plug 'chiel92/vim-autoformat'
-
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ddollar/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -21,12 +18,12 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'scrooloose/syntastic/'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'tpope/vim-obsession'
-"Plug 'vim-multiple-cursors'
+Plug 'vim-multiple-cursors'
 Plug 'tmhedberg/matchit'
-" Plug 'digitaltoad/vim-jade'
 Plug 'tpope/vim-surround'
 Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
 Plug 'christoomey/vim-tmux-navigator'
+
 " Javascript related
 Plug 'chemzqm/vim-jsx-improve'
 
@@ -37,7 +34,6 @@ call plug#end()
 """"""""""""""""""
 set clipboard=unnamed " Uses OS clipboard if enabled
 set nocompatible " not compatible with vi
-
 set autoread " Set to auto read when a file is changed from the outside
 set history=1000 " change history to 1000
 
@@ -50,10 +46,6 @@ set scrolloff=3 " lines of text around cursor
 set title " set terminal title:w
 set showmatch " show matchin braces
 set cmdheight=1 " command bar height
-
-"""""""""""""""""""""""
-" Visual and  Color Scheme Settings
-"""""""""""""""""""""""
 set nowrap
 set relativenumber
 set number
@@ -64,7 +56,7 @@ set ttyfast " faster redrawing
 set mouse=r
 set ttymouse=xterm2
 syntax enable
-" set t_Co=256
+" set t_Co=256 "For color terminals with 256 colors support
 
 " Theme Settings
 colorscheme jellybeans
@@ -80,10 +72,12 @@ endif
 set autoindent "autoindent
 set si "Smart indent
 
+" Search related
 set ignorecase " Ignore case when searching
 set incsearch " Go directly to first result
 set smartcase " When searching try to be smart about cases
 
+" one tab 4 spaces
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -111,14 +105,6 @@ map <space> <leader>
 nmap <silent> <F4> :set invpaste<CR>:set paste?<CR>
 imap <silent> <F4> <ESC>:set invpaste<CR>:set paste?<CR>
 
-
-" Some helpers to edit mode
-" http://vimcasts.org/e/14
-nmap <leader>ew :e <C-R>=expand('%:h').'/'<cr>
-nmap <leader>es :sp <C-R>=expand('%:h').'/'<cr>
-nmap <leader>ev :vsp <C-R>=expand('%:h').'/'<cr>
-nmap <leader>et :tabe <C-R>=expand('%:h').'/'<cr>
-
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
 
@@ -142,9 +128,6 @@ nmap <leader>] >>
 
 " switch between current and last buffer
 nmap <leader><tab> <c-^>
-
-" search for word under the cursor
-nnoremap <leader>/ "fyiw :/<c-r>f<cr>
 
 " CtrlP Settings
 nmap <silent> <leader>b :CtrlPBuffer<cr>
@@ -171,8 +154,6 @@ nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
-" nnoremap <silent> {C-\} :TmuxNavigatePrevious<cr>
-
 
 " Opening a new tab
 nnoremap <leader>t :tabnew<cr>
@@ -198,26 +179,23 @@ let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 
 nnoremap <leader>ue :UltiSnipsEdit<cr>
 
-" YouCompletEMe
-let g:ycm_autoclose_preview_window_after_completion = 1
+" YouCompleteMe
+" let g:ycm_autoclose_preview_window_after_completion = 1
 
-let g:ycm_dont_warn_on_startup = 0
+" let g:ycm_dont_warn_on_startup = 0
 
-let g:ycm_complete_in_comments = 1
-let g:ycm_complete_in_strings = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
+" let g:ycm_complete_in_comments = 1
+" let g:ycm_complete_in_strings = 1
+" let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
-let g:ycm_filetype_blacklist = {}
+" let g:ycm_filetype_blacklist = {}
 
-let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+" let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
 
 " Supertab
-let g:SuperTabDefaultCompletionType    = '<C-n>'
-let g:SuperTabCrMapping                = 0
-
-" Easy Motion
-map <leader>w <Plug>(easymotion-w)
+" let g:SuperTabDefaultCompletionType    = '<C-n>'
+" let g:SuperTabCrMapping                = 0
 
 " Backups
 set backup                     " enable creation of backup files
@@ -238,13 +216,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " Javascript Libs settins
 let g:used_javascript_libs = 'react'
-
 let g:AutoPairsFlyMode = 0
-
-"""""""""""""""""
-" Openframeworks
-"""""""""""""""""
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf_openframeworks.py"
 
 "" mucomplete
 set completeopt+=menuone
@@ -255,8 +227,7 @@ set completeopt+=noselect
 set completeopt+=noinsert
 let g:mucomplete#enable_auto_at_startup = 1
 
-
-" Gui
+" Gui version of Vim (gVim)
 set guioptions-=m " Turn off menubar
 set guioptions-=T " Turn off toolbar
 set guioptions-=r " Turn off right-hand scrollbar
@@ -265,6 +236,7 @@ set guioptions-=L " Turn off left-hand scrollbar
 set guioptions-=l " Turn off left-hand=scrollbar when split
 set guicursor+=a:blinkon0 " Turn off blinking cursor
 
+" Font settings for gVim
 if has("win32")
     set guifont=Consolas:h12
 else
