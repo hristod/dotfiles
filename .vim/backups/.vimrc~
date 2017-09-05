@@ -15,10 +15,6 @@ Plug 'honza/vim-snippets'
 Plug 'scrooloose/syntastic'
 Plug 'chiel92/vim-autoformat'
 
-
-
-
-
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ddollar/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -70,7 +66,7 @@ syntax enable
 " set t_Co=256
 
 " Theme Settings
-colorscheme molokai
+colorscheme solarized
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -251,3 +247,4 @@ inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
 inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
 set completeopt+=noselect
 set completeopt+=noinsert
+let g:mucomplete#enable_auto_at_startup = 1

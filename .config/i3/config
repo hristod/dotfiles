@@ -252,3 +252,11 @@ bindsym F12 exec rofi -show window -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -
 mode "ignore i3" {
     bindsym Shift+Escape mode "default"
 }
+
+# Multi display related
+
+# Switch workspace between displays
+bindsym $mod+t move workspace to output right
+
+# Change monitor config
+bindsym $mod+m exec ~/.config/i3/monitor.sh

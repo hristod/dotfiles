@@ -15,10 +15,6 @@ Plug 'honza/vim-snippets'
 Plug 'scrooloose/syntastic'
 Plug 'chiel92/vim-autoformat'
 
-
-
-
-
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ddollar/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
