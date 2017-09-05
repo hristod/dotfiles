@@ -10,7 +10,6 @@ Plug 'flazz/vim-colorschemes'
 
 """ General Functionality
 Plug 'lifepillar/vim-mucomplete'
-Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/syntastic'
 Plug 'chiel92/vim-autoformat'
@@ -22,12 +21,14 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'scrooloose/syntastic/'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'tpope/vim-obsession'
-Plug 'vim-multiple-cursors'
+"Plug 'vim-multiple-cursors'
 Plug 'tmhedberg/matchit'
 " Plug 'digitaltoad/vim-jade'
 Plug 'tpope/vim-surround'
 Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
 Plug 'christoomey/vim-tmux-navigator'
+" Javascript related
+Plug 'chemzqm/vim-jsx-improve'
 
 call plug#end()
 
@@ -66,7 +67,7 @@ syntax enable
 " set t_Co=256
 
 " Theme Settings
-colorscheme molokai
+colorscheme jellybeans
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -150,13 +151,18 @@ nmap <silent> <leader>b :CtrlPBuffer<cr>
 let g:ctrlp_dotfiles=1
 let g:ctrlp_working_path_mode = 'ra'
 
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-      \ --ignore .git
-      \ --ignore .svn
-      \ --ignore .hg
-      \ --ignore .DS_Store
-      \ --ignore "**/*.pyc"
-      \ -g ""'
+" If windows: let g:ctrlp_user_command = 'ag -l --nocolor -g "" %s'
+if has("win32")
+    let g:ctrlp_user_command = 'ag  -i --nocolor --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g "" %s'
+else
+    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+          \ --ignore .git
+          \ --ignore .svn
+          \ --ignore .hg
+          \ --ignore .DS_Store
+          \ --ignore "**/*.pyc"
+          \ -g ""'
+endif
 
 " Tmux Navigator stuff
 let g:tmux_navigator_no_mappings = 1
@@ -231,7 +237,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 
 " Javascript Libs settins
-let g:used_javascript_libs = 'angularjs,jquery,react'
+let g:used_javascript_libs = 'react'
 
 let g:AutoPairsFlyMode = 0
 
@@ -248,3 +254,19 @@ inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
 set completeopt+=noselect
 set completeopt+=noinsert
 let g:mucomplete#enable_auto_at_startup = 1
+
+
+" Gui
+set guioptions-=m " Turn off menubar
+set guioptions-=T " Turn off toolbar
+set guioptions-=r " Turn off right-hand scrollbar
+set guioptions-=R " Turn off right-hand scrollbar when split
+set guioptions-=L " Turn off left-hand scrollbar
+set guioptions-=l " Turn off left-hand=scrollbar when split
+set guicursor+=a:blinkon0 " Turn off blinking cursor
+
+if has("win32")
+    set guifont=Consolas:h12
+else
+    set guifont=Inconsolata\ 12
+endif
