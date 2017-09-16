@@ -9,13 +9,12 @@ Plug 'flazz/vim-colorschemes'
 """ General Functionality
 Plug 'lifepillar/vim-mucomplete'
 Plug 'honza/vim-snippets'
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
 Plug 'chiel92/vim-autoformat'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ddollar/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'dyng/ctrlsf.vim'
-Plug 'scrooloose/syntastic/'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'tpope/vim-obsession'
 Plug 'vim-multiple-cursors'
@@ -26,6 +25,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Javascript related
 Plug 'chemzqm/vim-jsx-improve'
+Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -211,9 +211,15 @@ endif
 """""""""""""""""""""""
 " Javascript Settings "
 """""""""""""""""""""""
-let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_args = '--config C:\Users\Hristo.D.Dimitrov\nvm\v6.9.5\node_modules\ut-tools\eslint\.eslintrc'
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+" Ale options
+let g:ale_javascript_eslint_options = '--config C:\Users\Hristo.D.Dimitrov\nvm\v6.9.5\node_modules\ut-tools\eslint\.eslintrc'
 
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
 
 " Javascript Libs settins
 let g:used_javascript_libs = 'react'
