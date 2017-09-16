@@ -10,7 +10,6 @@ URxvt.font: xft:monospace:size=10, xft:FontAwesome:size=9
 URxvt.boldFont: xft:monospace:size=10, xft:FontAwesome:size=9
 URxvt.scrollBar: false
 URxvt.depth: 24
-URxvt.background: rgba:0000/0000/0200/f000
 URxvt.letterSpace: -2
 URxvt.cursorBlink: false
 
@@ -19,37 +18,44 @@ URxvt.perl-ext-common: default,matcher,selection-to-clipboard
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 
 
-! URxvt Colors:
+!!!! URxvt Colors !!!!
+
 ! special
-URxvt*.foreground:   #c5c8c6
-!URxvt*.background:   #1d1f21
-URxvt*.cursorColor:  #c5c8c6
+URxvt.foreground:   #7ea2b4
+URxvt.background:   #161b1d
+URxvt.cursorColor:  #7ea2b4
 
 ! black
-URxvt*.color0:       #282a2e
-URxvt*.color8:       #373b41
+URxvt.color0:       #161b1d
+URxvt.color8:       #5a7b8c
 
 ! red
-URxvt*.color1:       #a54242
-URxvt*.color9:       #cc6666
+URxvt.color1:       #d22d72
+URxvt.color9:       #d22d72
+
 ! green
-URxvt*.color2:       #8c9440
-URxvt*.color10:      #b5bd68
+URxvt.color2:       #568c3b
+URxvt.color10:      #568c3b
+
 ! yellow
-URxvt*.color3:       #de935f
-URxvt*.color11:      #f0c674
+URxvt.color3:       #8a8a0f
+URxvt.color11:      #8a8a0f
+
 ! blue
-URxvt*.color4:       #5f819d
-URxvt*.color12:      #81a2be
+URxvt.color4:       #257fad
+URxvt.color12:      #257fad
+
 ! magenta
-URxvt*.color5:       #85678f
-URxvt*.color13:      #b294bb
+URxvt.color5:       #5d5db1
+URxvt.color13:      #5d5db1
+
 ! cyan
-URxvt*.color6:       #5e8d87
-URxvt*.color14:      #8abeb7
+URxvt.color6:       #2d8f6f
+URxvt.color14:      #2d8f6f
+
 ! white
-URxvt*.color7:       #707880
-URxvt*.color15:      #c5c8c6
+URxvt.color7:       #7ea2b4
+URxvt.color15:      #ebf8ff
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme

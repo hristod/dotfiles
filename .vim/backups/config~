@@ -50,9 +50,10 @@ bindsym $mod+Shift+q kill
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# auto start
+# Auto start
 exec --no-startup-id compton -b
 exec feh --bg-fill ~/Pictures/Wallpapers/wallhaven-191070.jpg
+exec sh ~/.xinitrc
 
 # change focus
 bindsym $mod+h focus left
@@ -179,18 +180,29 @@ bar {
 status_command i3blocks
 position top
 font pango:monospace 8, Awesome 10
-
     colors {
-        background #282828
-        statusline #bbbbbb
-        separator  #555555
+        # Old theme:
+        # background #282828
+        # statusline #bbbbbb
+        # separator  #555555
+
+
+        #                    #border backgr. text
+        # focused_workspace  #000000 #bbbbbb #282828
+        # active_workspace   #323232 #5f676a #ebdbb2
+        # inactive_workspace #323232 #323232 #888888
+        # urgent_workspace   #333333 #900000 #ffffff
+
+        background #161b1d
+        statusline #5a7b8c
+        separator  #5a7b8c
 
 
                            #border backgr. text
-        focused_workspace  #000000 #bbbbbb #282828
-        active_workspace   #323232 #5f676a #ebdbb2
-        inactive_workspace #323232 #323232 #888888
-        urgent_workspace   #333333 #900000 #ffffff
+        focused_workspace  #161B1D #7EA2B4 #161B1D 
+        active_workspace   #161B1D #161B1D #D22D72
+        inactive_workspace #161B1D #161B1D #5a7b8c
+        urgent_workspace   #161B1D #D22D72 #161B1D
     }
 }
 

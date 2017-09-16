@@ -32,7 +32,7 @@ call plug#end()
 """"""""""""""""""
 " General Settings
 """"""""""""""""""
-set clipboard=unnamed " Uses OS clipboard if enabled
+set clipboard=unnamedplus " Uses OS clipboard if enabled
 set nocompatible " not compatible with vi
 set autoread " Set to auto read when a file is changed from the outside
 set history=1000 " change history to 1000
@@ -59,7 +59,8 @@ syntax enable
 " set t_Co=256 "For color terminals with 256 colors support
 
 " Theme Settings
-colorscheme jellybeans
+"colorscheme jellybeans
+colorscheme base16-atelierlakeside
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -240,5 +241,5 @@ set guicursor+=a:blinkon0 " Turn off blinking cursor
 if has("win32")
     set guifont=Consolas:h12
 else
-    set guifont=Inconsolata\ 12
+    set guifont=Inconsolata\ 11
 endif
