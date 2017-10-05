@@ -21,41 +21,41 @@ URxvt.matcher.button:
 !!!! URxvt Colors !!!!
 
 ! special
-URxvt.foreground:   #7ea2b4
-URxvt.background:   #161b1d
-URxvt.cursorColor:  #7ea2b4
+URxvt.foreground:   #a7a7a7
+URxvt.background:   #1e1e1e
+URxvt.cursorColor:  #a7a7a7
 
 ! black
-URxvt.color0:       #161b1d
-URxvt.color8:       #5a7b8c
+URxvt.color0:       #1e1e1e
+URxvt.color8:       #5f5a60
 
 ! red
-URxvt.color1:       #d22d72
-URxvt.color9:       #d22d72
+URxvt.color1:       #cf6a4c
+URxvt.color9:       #cf6a4c
 
 ! green
-URxvt.color2:       #568c3b
-URxvt.color10:      #568c3b
+URxvt.color2:       #8f9d6a
+URxvt.color10:      #8f9d6a
 
 ! yellow
-URxvt.color3:       #8a8a0f
-URxvt.color11:      #8a8a0f
+URxvt.color3:       #f9ee98
+URxvt.color11:      #f9ee98
 
 ! blue
-URxvt.color4:       #257fad
-URxvt.color12:      #257fad
+URxvt.color4:       #7587a6
+URxvt.color12:      #7587a6
 
 ! magenta
-URxvt.color5:       #5d5db1
-URxvt.color13:      #5d5db1
+URxvt.color5:       #9b859d
+URxvt.color13:      #9b859d
 
 ! cyan
-URxvt.color6:       #2d8f6f
-URxvt.color14:      #2d8f6f
+URxvt.color6:       #afc4db
+URxvt.color14:      #afc4db
 
 ! white
-URxvt.color7:       #7ea2b4
-URxvt.color15:      #ebf8ff
+URxvt.color7:       #a7a7a7
+URxvt.color15:      #ffffff
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme

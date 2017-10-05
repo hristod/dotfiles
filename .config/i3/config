@@ -9,14 +9,14 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-#          
+#           
 
 # Desktops
-set $ws1  "1:  "
-set $ws2  "2:   "
-set $ws3  "3:  "
-set $ws4  "4:  "
-set $ws5  "5"
+set $ws1  "1: "
+set $ws2  "2: "
+set $ws3  "3: "
+set $ws4  "4: "
+set $ws5  "5: "
 set $ws6  "6"
 set $ws7  "7"
 set $ws8  "8"
@@ -52,7 +52,7 @@ bindsym $mod+Shift+q kill
 
 # Auto start
 exec --no-startup-id compton -b
-exec feh --bg-fill ~/Pictures/Wallpapers/wallhaven-191070.jpg
+exec feh --bg-fill ~/Pictures/Wallpapers/lain_04.jpg
 exec sh ~/.xinitrc
 
 # change focus
@@ -119,17 +119,6 @@ bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
 
-# bindsym $mod+Shift+exclam move container to workspace 1
-# bindsym $mod+Shift+at move container to workspace 2
-# bindsym $mod+Shift+numbersign move container to workspace 3
-# bindsym $mod+Shift+dollar move container to workspace 4
-# bindsym $mod+Shift+percent move container to workspace 5
-# bindsym $mod+Shift+asciicircum move container to workspace 6
-# bindsym $mod+Shift+ampersand move container to workspacr 7
-# bindsym $mod+Shift+asterisk move container to workspace 8
-# bindsym $mod+Shift+parenleft move container to workspace 9
-# bindsym $mod+Shift+parenright move container to workspace 10
-
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
@@ -182,38 +171,26 @@ position top
 font pango:monospace 8, Awesome 10
     colors {
         # Old theme:
-        # background #282828
-        # statusline #bbbbbb
-        # separator  #555555
-
-
-        #                    #border backgr. text
-        # focused_workspace  #000000 #bbbbbb #282828
-        # active_workspace   #323232 #5f676a #ebdbb2
-        # inactive_workspace #323232 #323232 #888888
-        # urgent_workspace   #333333 #900000 #ffffff
-
-        # Artelier lakeside dark
-        background #161b1d
-        statusline #5a7b8c
-        separator  #5a7b8c
-
+        background #282828
+        statusline #bbbbbb
+        separator  #555555
 
                            #border backgr. text
-        focused_workspace  #161B1D #7EA2B4 #161B1D 
-        active_workspace   #161B1D #161B1D #D22D72
-        inactive_workspace #161B1D #161B1D #5a7b8c
-        urgent_workspace   #161B1D #D22D72 #161B1D
+        focused_workspace  #000000 #bbbbbb #282828
+        active_workspace   #323232 #5f676a #ebdbb2
+        inactive_workspace #323232 #323232 #aaaaaa
+        urgent_workspace   #333333 #900000 #ffffff
     }
 }
 
 # Window colors
 
+#focused window background is actually the color of the border
 # class                 border  backgr. text    indicator
-client.focused          #000000 #333333 #ebdbb2 #666666
-client.unfocused        #333333 #000000 #ebdbb2 #323232
+client.focused          #333333 #333333 #bbbbbb #5a7b8c
+client.unfocused        #333333 #000000 #ebdbb2 #D22D72
 client.focused_inactive #333333 #000000 #ebdbb2 #323232
-client.urgent 		#333333 #383a3b #ee0000 #383a3b
+client.urgent 		    #333333 #383a3b #ee0000 #383a3b
 
 # Volume controls
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute; exec pkill -RTMIN+10 i3blocks
@@ -235,7 +212,7 @@ bindsym $mod+x exec ~/.config/i3/lock.sh
 new_window 1pixel
 
 
-# Fix graphics glitch
+# Make some windows floating
 #for_window [class=(?i)termite] border pixel 3
 
 for_window [window_role="pop-up"] floating enable
@@ -255,6 +232,7 @@ for_window [class="(?i)blueman"] floating enable
 for_window [instance="__scratchpad"] floating enable
 for_window [instance="__nmtui"] floating enable
 for_window [class="(?i)recordmydesktop"] floating enable
+# Opera windows
 
 # rofi bindings
 bindsym F9  exec rofi -show run -fg "#aaaaaa" -bg "#333333" -hlfg "#ffffff" -hlbg "#ffffff" -o 85
