@@ -98,7 +98,7 @@ keycode 104 = KP_Enter NoSymbol KP_Enter
 keycode 105 = Control_R NoSymbol Control_R
 keycode 106 = KP_Divide KP_Divide KP_Divide KP_Divide KP_Divide KP_Divide XF86Ungrab KP_Divide KP_Divide XF86Ungrab
 keycode 107 = Print Sys_Req Print Sys_Req
-keycode 108 = ISO_Next_Group Meta_R ISO_Next_Group Meta_R
+keycode 108 = ISO_Next_Group ISO_Next_Group 
 keycode 109 = Linefeed NoSymbol Linefeed
 keycode 110 = Home NoSymbol Home
 keycode 111 = Up NoSymbol Up
@@ -246,7 +246,8 @@ keycode 252 =
 keycode 253 =
 keycode 254 =
 keycode 255 =
-
+!
+! Caps -> Ctrl
 clear lock
 clear control
 keycode 66 = Control_L
