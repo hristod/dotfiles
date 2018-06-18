@@ -4,35 +4,43 @@ call plug#begin('~/.vim/plugged')
 " Utilities
 Plug 'tpope/vim-sensible'
 Plug 'sheerun/vim-polyglot'
-Plug 'flazz/vim-colorschemes'
 
 """ General Functionality
-Plug 'lifepillar/vim-mucomplete'
-Plug 'honza/vim-snippets'
+
+"Plug 'lifepillar/vim-mucomplete'
+"Plug 'honza/vim-snippets'
 "Plug 'scrooloose/syntastic'
 Plug 'chiel92/vim-autoformat'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'ddollar/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'dyng/ctrlsf.vim'
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'tpope/vim-obsession'
+"Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+"Plug 'tpope/vim-obsession'
 Plug 'vim-multiple-cursors'
 Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-surround'
-Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
-Plug 'christoomey/vim-tmux-navigator'
+"Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
+"Plug 'christoomey/vim-tmux-navigator'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
-" Javascript related
-Plug 'chemzqm/vim-jsx-improve'
-Plug 'w0rp/ale'
+""" Interface related
+Plug 'itchyny/lightline.vim'
+
+""" Git related
+" Plug 'tpope/vim-fugitive'
+
+" Javascript and HTML related
+"Plug 'chemzqm/vim-jsx-improve'
+Plug 'mattn/emmet-vim'
+"Plug 'w0rp/ale'
 
 call plug#end()
 
 """"""""""""""""""
 " General Settings
 """"""""""""""""""
-set clipboard=unnamedplus " Uses OS clipboard if enabled
+set clipboard=unnamed " Uses OS clipboard if enabled
 set nocompatible " not compatible with vi
 set autoread " Set to auto read when a file is changed from the outside
 set history=1000 " change history to 1000
@@ -55,12 +63,15 @@ set lazyredraw
 set ttyfast " faster redrawing
 set mouse=r
 set ttymouse=xterm2
-syntax enable
-" set t_Co=256 "For color terminals with 256 colors support
 
 " Theme Settings
-"colorscheme jellybeans
-colorscheme base16-atelierlakeside
+syntax on
+set t_Co=256 "For color terminals with 256 colors support
+set termguicolors
+let g:dracula_italic = 0
+let g:colors_name = 'dracula'
+color dracula
+highlight Normal ctermbg=NONE
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -77,7 +88,6 @@ set si "Smart indent
 set ignorecase " Ignore case when searching
 set incsearch " Go directly to first result
 set smartcase " When searching try to be smart about cases
-
 " one tab 4 spaces
 set tabstop=4
 set softtabstop=4
@@ -90,7 +100,7 @@ set tw=500
 
 
 """"""""""""""""""""""
-" Custom mapping
+" Custom mapping & disabled mapping
 """"""""""""""""""""""
 
 " Disable highlight when <leader><cr> is pressed
@@ -101,25 +111,14 @@ map <silent> <leader><cr> :noh<cr>
 " <leader> as space
 nnoremap <space> <nop>
 map <space> <leader>
-
 " Toggle paste mode
 nmap <silent> <F4> :set invpaste<CR>:set paste?<CR>
 imap <silent> <F4> <ESC>:set invpaste<CR>:set paste?<CR>
-
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
-
 " NERDCommenter mappings
 map <leader>; <plug>NERDCommenterToggle<CR>
-
 " Nerdtree toggle with <leader>f
-map <leader>f :NERDTreeToggle<CR> :NERDTreeMirror<CR>
-" close NERDTree after a file is opened
-let g:NERDTreeQuitOnOpen=0
-" show hidden files in NERDTree
-let NERDTreeShowHidden=1
-" remove some files by extension
-let NERDTreeIgnore = ['\.js.map$']
 
 " Textmate style indentation
 vmap <leader>[ <gv
@@ -130,23 +129,20 @@ nmap <leader>] >>
 " switch between current and last buffer
 nmap <leader><tab> <c-^>
 
-" CtrlP Settings
-nmap <silent> <leader>b :CtrlPBuffer<cr>
-let g:ctrlp_dotfiles=1
-let g:ctrlp_working_path_mode = 'ra'
+" Ctrl+P for FZF
+nmap <c-p> :FZF<cr>
 
-" If windows: let g:ctrlp_user_command = 'ag -l --nocolor -g "" %s'
-if has("win32")
-    let g:ctrlp_user_command = 'ag  -i --nocolor --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g "" %s'
-else
-    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-          \ --ignore .git
-          \ --ignore .svn
-          \ --ignore .hg
-          \ --ignore .DS_Store
-          \ --ignore "**/*.pyc"
-          \ -g ""'
-endif
+"""""""""""""""""
+" Plug Settings "
+"""""""""""""""""
+
+map <leader>f :NERDTreeToggle<CR> :NERDTreeMirror<CR>
+" close NERDTree after a file is opened
+let g:NERDTreeQuitOnOpen=0
+" show hidden files in NERDTree
+let NERDTreeShowHidden=1
+" remove some files by extension
+let NERDTreeIgnore = ['\.js.map$']
 
 " Tmux Navigator stuff
 let g:tmux_navigator_no_mappings = 1
@@ -172,31 +168,8 @@ nnoremap <leader>rtw :%s/\s\+$//e<CR>
 
 " Ultisnips
 
-let g:UltiSnipsSnippetsDir='~/.vim/snippets'
-let g:UltiSnipsEditSplit='vertical'
-let g:UltiSnipsExpandTrigger           = '<tab>'
-let g:UltiSnipsJumpForwardTrigger      = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
-
 nnoremap <leader>ue :UltiSnipsEdit<cr>
 
-" YouCompleteMe
-" let g:ycm_autoclose_preview_window_after_completion = 1
-
-" let g:ycm_dont_warn_on_startup = 0
-
-" let g:ycm_complete_in_comments = 1
-" let g:ycm_complete_in_strings = 1
-" let g:ycm_collect_identifiers_from_comments_and_strings = 1
-
-" let g:ycm_filetype_blacklist = {}
-
-" let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
-
-" Supertab
-" let g:SuperTabDefaultCompletionType    = '<C-n>'
-" let g:SuperTabCrMapping                = 0
 
 " Backups
 set backup                     " enable creation of backup files
@@ -220,19 +193,6 @@ let g:ale_javascript_eslint_options = '--config C:\Users\Hristo.D.Dimitrov\nvm\v
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \}
-
-" Javascript Libs settins
-let g:used_javascript_libs = 'react'
-let g:AutoPairsFlyMode = 0
-
-"" mucomplete
-set completeopt+=menuone
-inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
-inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
-inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
-set completeopt+=noselect
-set completeopt+=noinsert
-let g:mucomplete#enable_auto_at_startup = 1
 
 " Gui version of Vim (gVim)
 set guioptions-=m " Turn off menubar
