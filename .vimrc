@@ -9,22 +9,21 @@ Plug 'sheerun/vim-polyglot'
 
 "Plug 'lifepillar/vim-mucomplete'
 "Plug 'honza/vim-snippets'
-"Plug 'scrooloose/syntastic'
 Plug 'chiel92/vim-autoformat'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'ddollar/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'dyng/ctrlsf.vim'
 "Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-"Plug 'tpope/vim-obsession'
 Plug 'vim-multiple-cursors'
 Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-surround'
 "Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
-"Plug 'christoomey/vim-tmux-navigator'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'christoomey/vim-tmux-navigator'
+"Plug 'tpope/vim-obsession'
 
 """ Interface related
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
 
 """ Git related
@@ -33,7 +32,10 @@ Plug 'itchyny/lightline.vim'
 " Javascript and HTML related
 "Plug 'chemzqm/vim-jsx-improve'
 Plug 'mattn/emmet-vim'
-"Plug 'w0rp/ale'
+Plug 'w0rp/ale'
+"
+" Markdown plugin
+Plug 'suan/vim-instant-markdown'
 
 call plug#end()
 
@@ -184,12 +186,7 @@ endif
 """""""""""""""""""""""
 " Javascript Settings "
 """""""""""""""""""""""
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_args = '--config C:\Users\Hristo.D.Dimitrov\nvm\v6.9.5\node_modules\ut-tools\eslint\.eslintrc'
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " Ale options
-let g:ale_javascript_eslint_options = '--config C:\Users\Hristo.D.Dimitrov\nvm\v6.9.5\node_modules\ut-tools\eslint\.eslintrc'
-
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \}
@@ -209,3 +206,4 @@ if has("win32")
 else
     set guifont=Inconsolata\ 11
 endif
+
